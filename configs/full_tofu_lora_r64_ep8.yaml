@@ -1,0 +1,66 @@
+# Continue from r64 ep7 adapter for +1 epoch (ep8). Same LR.
+# READ ONLY source: outputs/full_tofu_r64_ep6_7/adapter
+# Does NOT overwrite kept r64 ep5 / ep7.
+experiment_name: full_tofu_lora_r64_continue_ep8
+seed: 42
+init_adapter: /opt/data/private/DQB/outputs/full_tofu_r64_ep6_7/adapter
+
+model:
+  path: /opt/data/private/DQB/models/Meta-Llama-3-8B
+  torch_dtype: bfloat16
+
+data:
+  tofu_root: /opt/data/private/DQB/data/tofu
+  split: full
+  max_length: 512
+  question_start_tag: "Question: "
+  question_end_tag: "\n"
+  answer_tag: "Answer: "
+
+lora:
+  r: 64
+  lora_alpha: 128
+  lora_dropout: 0.05
+  bias: none
+  task_type: CAUSAL_LM
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+training:
+  num_train_epochs: 1
+  learning_rate: 5.0e-5
+  warmup_ratio: 0.03
+  lr_scheduler_type: cosine
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  per_device_train_batch_size: 4
+  gradient_accumulation_steps: 8
+  bf16: true
+  gradient_checkpointing: true
+  logging_steps: 10
+  save_strategy: steps
+  save_steps: 125
+  save_total_limit: 1
+  optim: adamw_torch
+  report_to: none
+  dataloader_num_workers: 2
+
+paths:
+  adapter_dir: /opt/data/private/DQB/outputs/full_tofu_r64_ep8/adapter
+  run_dir: /opt/data/private/DQB/outputs/full_tofu_r64_ep8/run
+  merged_dir: /opt/data/private/DQB/outputs/full_tofu_r64_ep8/merged
+  log_dir: /opt/data/private/DQB/logs/full_tofu_r64_ep8
+  manifest: /opt/data/private/DQB/results/full_tofu_r64_ep8_manifest.json
+
+smoke:
+  max_steps: 15
+  logging_steps: 1
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 2
+  output_dir: /opt/data/private/DQB/outputs/full_tofu_r64_ep8/smoke

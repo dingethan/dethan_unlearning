@@ -1,0 +1,284 @@
+{
+  "source": "locuslab/TOFU",
+  "hf_endpoint": "https://hf-mirror.com",
+  "configs": {
+    "full": {
+      "train": {
+        "n": 4000,
+        "columns": [
+          "question",
+          "answer"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')"
+        }
+      }
+    },
+    "forget01": {
+      "train": {
+        "n": 40,
+        "columns": [
+          "question",
+          "answer"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')"
+        }
+      }
+    },
+    "forget05": {
+      "train": {
+        "n": 200,
+        "columns": [
+          "question",
+          "answer"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')"
+        }
+      }
+    },
+    "forget10": {
+      "train": {
+        "n": 400,
+        "columns": [
+          "question",
+          "answer"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')"
+        }
+      }
+    },
+    "retain90": {
+      "train": {
+        "n": 3600,
+        "columns": [
+          "question",
+          "answer"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')"
+        }
+      }
+    },
+    "retain95": {
+      "train": {
+        "n": 3800,
+        "columns": [
+          "question",
+          "answer"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')"
+        }
+      }
+    },
+    "retain99": {
+      "train": {
+        "n": 3960,
+        "columns": [
+          "question",
+          "answer"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')"
+        }
+      }
+    },
+    "world_facts": {
+      "train": {
+        "n": 117,
+        "columns": [
+          "question",
+          "option1",
+          "option2",
+          "option3",
+          "option4",
+          "answer"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "option1": "Value('string')",
+          "option2": "Value('string')",
+          "option3": "Value('string')",
+          "option4": "Value('string')",
+          "answer": "Value('string')"
+        }
+      }
+    },
+    "real_authors": {
+      "train": {
+        "n": 100,
+        "columns": [
+          "question",
+          "option1",
+          "option2",
+          "option3",
+          "option4",
+          "answer"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "option1": "Value('string')",
+          "option2": "Value('string')",
+          "option3": "Value('string')",
+          "option4": "Value('string')",
+          "answer": "Value('string')"
+        }
+      }
+    },
+    "forget01_perturbed": {
+      "train": {
+        "n": 40,
+        "columns": [
+          "question",
+          "answer",
+          "paraphrased_answer",
+          "perturbed_answer",
+          "paraphrased_question"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')",
+          "paraphrased_answer": "Value('string')",
+          "perturbed_answer": "List(Value('string'))",
+          "paraphrased_question": "Value('string')"
+        }
+      }
+    },
+    "forget05_perturbed": {
+      "train": {
+        "n": 200,
+        "columns": [
+          "question",
+          "answer",
+          "paraphrased_answer",
+          "perturbed_answer",
+          "paraphrased_question"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')",
+          "paraphrased_answer": "Value('string')",
+          "perturbed_answer": "List(Value('string'))",
+          "paraphrased_question": "Value('string')"
+        }
+      }
+    },
+    "forget10_perturbed": {
+      "train": {
+        "n": 400,
+        "columns": [
+          "question",
+          "answer",
+          "paraphrased_answer",
+          "perturbed_answer",
+          "paraphrased_question"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')",
+          "paraphrased_answer": "Value('string')",
+          "perturbed_answer": "List(Value('string'))",
+          "paraphrased_question": "Value('string')"
+        }
+      }
+    },
+    "retain_perturbed": {
+      "train": {
+        "n": 400,
+        "columns": [
+          "question",
+          "answer",
+          "paraphrased_answer",
+          "perturbed_answer",
+          "paraphrased_question"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')",
+          "paraphrased_answer": "Value('string')",
+          "perturbed_answer": "List(Value('string'))",
+          "paraphrased_question": "Value('string')"
+        }
+      }
+    },
+    "world_facts_perturbed": {
+      "train": {
+        "n": 117,
+        "columns": [
+          "question",
+          "answer",
+          "perturbed_answer"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')",
+          "perturbed_answer": "List(Value('string'))"
+        }
+      }
+    },
+    "real_authors_perturbed": {
+      "train": {
+        "n": 100,
+        "columns": [
+          "question",
+          "answer",
+          "perturbed_answer"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')",
+          "perturbed_answer": "List(Value('string'))"
+        }
+      }
+    },
+    "holdout01": {
+      "train": {
+        "n": 40,
+        "columns": [
+          "question",
+          "answer"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')"
+        }
+      }
+    },
+    "holdout05": {
+      "train": {
+        "n": 200,
+        "columns": [
+          "question",
+          "answer"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')"
+        }
+      }
+    },
+    "holdout10": {
+      "train": {
+        "n": 400,
+        "columns": [
+          "question",
+          "answer"
+        ],
+        "features": {
+          "question": "Value('string')",
+          "answer": "Value('string')"
+        }
+      }
+    }
+  }
+}

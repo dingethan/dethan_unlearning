@@ -1,0 +1,51 @@
+{
+  "builder_name": "json",
+  "citation": "",
+  "config_name": "forget01_perturbed",
+  "dataset_name": "tofu",
+  "dataset_size": 67589,
+  "description": "",
+  "download_size": 70622,
+  "features": {
+    "question": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "answer": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "paraphrased_answer": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "perturbed_answer": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "List"
+    },
+    "paraphrased_question": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 138211,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 67589,
+      "num_examples": 40,
+      "dataset_name": "tofu"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "builder_name": "json",
+  "citation": "",
+  "config_name": "retain99",
+  "dataset_name": "tofu",
+  "dataset_size": 979992,
+  "description": "",
+  "download_size": 1066188,
+  "features": {
+    "question": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "answer": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 2046180,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 979992,
+      "num_examples": 3960,
+      "dataset_name": "tofu"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

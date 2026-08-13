@@ -1,0 +1,43 @@
+{
+  "builder_name": "json",
+  "citation": "",
+  "config_name": "world_facts_perturbed",
+  "dataset_name": "tofu",
+  "dataset_size": 14067,
+  "description": "",
+  "download_size": 18053,
+  "features": {
+    "question": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "answer": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "perturbed_answer": {
+      "feature": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "_type": "List"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 32120,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 14067,
+      "num_examples": 117,
+      "dataset_name": "tofu"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

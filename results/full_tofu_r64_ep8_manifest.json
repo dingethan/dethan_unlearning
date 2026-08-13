@@ -1,0 +1,81 @@
+{
+  "timestamp": "2026-08-13T14:58:41",
+  "experiment_name": "full_tofu_lora_r64_continue_ep8",
+  "base_model_path": "/opt/data/private/DQB/models/Meta-Llama-3-8B",
+  "tofu_root": "/opt/data/private/DQB/data/tofu",
+  "split": "full",
+  "prompt_template": {
+    "question_start_tag": "Question: ",
+    "question_end_tag": "\n",
+    "answer_tag": "Answer: "
+  },
+  "lora": {
+    "r": 64,
+    "lora_alpha": 128,
+    "lora_dropout": 0.05,
+    "bias": "none",
+    "task_type": "CAUSAL_LM",
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "training": {
+    "num_train_epochs": 1,
+    "learning_rate": 5e-05,
+    "warmup_ratio": 0.03,
+    "lr_scheduler_type": "cosine",
+    "weight_decay": 0.0,
+    "max_grad_norm": 1.0,
+    "per_device_train_batch_size": 4,
+    "gradient_accumulation_steps": 8,
+    "bf16": true,
+    "gradient_checkpointing": true,
+    "logging_steps": 10,
+    "save_strategy": "steps",
+    "save_steps": 125,
+    "save_total_limit": 1,
+    "optim": "adamw_torch",
+    "report_to": "none",
+    "dataloader_num_workers": 2
+  },
+  "mode": "full_train",
+  "target_modules_resolved": [
+    "down_proj",
+    "gate_proj",
+    "k_proj",
+    "o_proj",
+    "q_proj",
+    "up_proj",
+    "v_proj"
+  ],
+  "param_stats": {
+    "total_parameters": 8198033408,
+    "trainable_parameters": 167772160,
+    "trainable_percent": 2.0464927580836716
+  },
+  "train_metrics": {
+    "train_runtime": 1607.1697,
+    "train_samples_per_second": 2.489,
+    "train_steps_per_second": 0.078,
+    "total_flos": 9.4282098671616e+16,
+    "train_loss": 0.21760341262817381,
+    "epoch": 1.0
+  },
+  "peak_mem_GB": 17.56925392150879,
+  "package_versions": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.14.1",
+    "peft": "0.19.1",
+    "datasets": "5.0.1"
+  },
+  "gpu": "NVIDIA RTX A6000",
+  "cuda": "12.8",
+  "bf16_supported": true,
+  "dataset_sample_count": 4000
+}

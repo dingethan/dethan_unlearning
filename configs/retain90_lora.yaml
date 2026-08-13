@@ -1,0 +1,63 @@
+# Rebuild θ_retain: same recipe as θ_full, retain90 split only.
+# Must NOT see forget10. Retrain together with θ_full or Forget Quality is not comparable.
+experiment_name: retain90_rebuild_lora_5ep
+seed: 42
+
+model:
+  path: /opt/data/private/DQB/models/Meta-Llama-3-8B
+  torch_dtype: bfloat16
+
+data:
+  tofu_root: /opt/data/private/DQB/data/tofu
+  split: retain90
+  max_length: 512
+  question_start_tag: "Question: "
+  question_end_tag: "\n"
+  answer_tag: "Answer: "
+
+lora:
+  r: 32
+  lora_alpha: 64
+  lora_dropout: 0.05
+  bias: none
+  task_type: CAUSAL_LM
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+training:
+  num_train_epochs: 5
+  learning_rate: 2.0e-5
+  warmup_ratio: 0.03
+  lr_scheduler_type: cosine
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  per_device_train_batch_size: 4
+  gradient_accumulation_steps: 8
+  bf16: true
+  gradient_checkpointing: true
+  logging_steps: 10
+  save_strategy: epoch
+  save_total_limit: 5
+  optim: adamw_torch
+  report_to: none
+  dataloader_num_workers: 2
+
+paths:
+  adapter_dir: /opt/data/private/DQB/outputs/retain90_rebuild/adapter
+  run_dir: /opt/data/private/DQB/outputs/retain90_rebuild/run
+  merged_dir: /opt/data/private/DQB/outputs/retain90_rebuild/merged
+  log_dir: /opt/data/private/DQB/logs/retain90_rebuild
+  manifest: /opt/data/private/DQB/results/retain90_rebuild_manifest.json
+
+smoke:
+  max_steps: 15
+  logging_steps: 1
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 2
+  output_dir: /opt/data/private/DQB/outputs/retain90_rebuild/smoke

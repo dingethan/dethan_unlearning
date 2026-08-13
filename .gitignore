@@ -5,4 +5,10 @@ __pycache__/
 .venv/
 venv/
 .env
+
+# large / local-only
 models/
+outputs/
+logs/
+*.pdf
+2608.01422v1.pdf
